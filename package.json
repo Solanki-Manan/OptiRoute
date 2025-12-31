@@ -1,0 +1,26 @@
+{
+  "name": "commute-sync",
+  "version": "1.0.0",
+  "description": "Corporate logistics & route optimization engine solving TSP and Carpool consolidation problems.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "commute-sync",
+    "tsp",
+    "logistics",
+    "route-optimization",
+    "fuel-calculator",
+    "graph-algorithms",
+    "visualization"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^2.2.0",
+    "cors": "^2.8.5",
+    "express": "^5.1.0"
+  }
+}

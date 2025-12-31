@@ -32,6 +32,30 @@ Optimizing daily commutes is critical for reducing corporate carbon footprints a
     *   Dynamic Programming (Bitmasking)
 *   **Data Structures**: Adjacency Matrices, Trees, Priority Queues
 
+---
+
+## 🚀 Quick Start
+
+### Installation
+1.  Clone the repository:
+    ```bash
+    git clone https://github.com/yourusername/CommuteSync.git
+    cd CommuteSync
+    ```
+
+2.  Install dependencies:
+    ```bash
+    npm install
+    ```
+
+### Run the Application
+Start the local development server:
+```bash
+npm start
+```
+Open your browser and navigate to: **http://localhost:3000**
+
+---
 
 ## � Usage Guide
 
@@ -50,3 +74,13 @@ Optimizing daily commutes is critical for reducing corporate carbon footprints a
 2.  **Set Capacity**: Define **Seats per Car** (e.g., 4 passengers per vehicle).
 3.  **Calculate**: Click **Calculate Fuel**.
 4.  **Visualize**: Use the "Next" buttons to watch how employees consolidate into fewer cars as they move closer to the office (Root Node 0).
+
+---
+
+## ⚠️ Troubleshooting
+
+*   **"No Hamiltonian cycle exists"**: Ensure your shuttle route graph is fully connected (every stop can reach every other stop, directly or indirectly).
+*   **"Tree must be acyclic"**: For the Carpool mode, ensure there are no loops. It must be a strict hierarchy (Tree structure).
+
+## 📄 License
+This project is open-source and available under the MIT License.

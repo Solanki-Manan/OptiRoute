@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CommuteSync - Corporate Logistics</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="main-container">
+    <h1 class="main-title">CommuteSync Logistics Engine</h1>
+    
+    <!-- Tab Navigation -->
+    <div class="tabs">
+      <button class="tab-btn active" data-tab="tsp">Shuttle Router (TSP)</button>
+      <button class="tab-btn" data-tab="fuel">Carpool Logistics</button>
+    </div>
+
+    <!-- TSP Section -->
+    <div id="tsp-section" class="tab-content active">
+      <div class="section-container">
+        <h2>Shuttle Route Optimizer</h2>
+        <p class="subtitle">Find the optimal pick-up loop for the company bus.</p>
+
+        <div class="input-section">
+          <label>Stop U <input type="number" id="tsp-nodeU" min="0" placeholder="0" /></label>
+          <label>Stop V <input type="number" id="tsp-nodeV" min="0" placeholder="1" /></label>
+          <label>Distance <input type="number" id="tsp-weight" min="1" placeholder="10" /></label>
+          <button id="tsp-addEdgeBtn" class="btn btn-primary">Add Route</button>
+        </div>
+
+        <h3>Route Connections</h3>
+        <div class="table-container">
+          <table id="tsp-edgesTable">
+            <thead>
+              <tr><th>Stop U</th><th>Stop V</th><th>Distance</th></tr>
+            </thead>
+            <tbody id="tsp-edgesBody"></tbody>
+          </table>
+        </div>
+
+        <div class="save-section">
+          <label>Total Stops <input type="number" id="tsp-nodesCount" min="2" placeholder="4" /></label>
+          <button id="tsp-saveBtn" class="btn btn-success">Save Network</button>
+          <button id="tsp-simulateBtn" class="btn btn-warning">Optimize Route</button>
+        </div>
+
+        <div id="tsp-resultDisplay" class="result-display"></div>
+
+        <canvas id="tsp-canvas" width="700" height="600"></canvas>
+      </div>
+    </div>
+
+    <!-- Fuel Calculator Section -->
+    <div id="fuel-section" class="tab-content">
+      <div class="section-container">
+        <h2>Carpool Consolidation Protocol</h2>
+        <p class="subtitle">Minimize fleet size by merging passenger groups.</p>
+
+        <div class="input-section">
+          <label>From Hub (Child) <input type="number" id="fuel-from" min="0" placeholder="0" /></label>
+          <label>To Hub (Parent) <input type="number" id="fuel-to" min="0" placeholder="1" /></label>
+          <label>Travel Cost <input type="number" id="fuel-weight" min="1" placeholder="5" /></label>
+          <button id="fuel-addEdgeBtn" class="btn btn-primary">Add Connection</button>
+        </div>
+
+        <h3>Network Connections</h3>
+        <div class="table-container">
+          <table id="fuel-edgesTable">
+            <thead>
+              <tr><th>From</th><th>To</th><th>Cost</th></tr>
+            </thead>
+            <tbody id="fuel-edgesBody"></tbody>
+          </table>
+        </div>
+
+        <div class="save-section">
+          <label>Seats per Vehicle <input type="number" id="fuel-seats" min="1" value="1" placeholder="2" /></label>
+          <button id="fuel-saveBtn" class="btn btn-success">Save Hierarchy</button>
+          <button id="fuel-calculateBtn" class="btn btn-warning">Calculate Fleet Efficiency</button>
+        </div>
+
+        <div class="results-section">
+          <p id="fuel-result">Minimum Fuel/Cost: 0</p>
+          <ul id="fuel-pathsList"></ul>
+        </div>
+
+        <div class="simulation-controls">
+          <button id="fuel-prevStep" class="btn btn-info">← Previous Leg</button>
+          <button id="fuel-nextStep" class="btn btn-info">Next Leg →</button>
+          <p>Sequence: <span id="fuel-stepNum">0</span> / <span id="fuel-totalSteps">0</span></p>
+        </div>
+
+        <canvas id="fuel-canvas" width="700" height="500"></canvas>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
